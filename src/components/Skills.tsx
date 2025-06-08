@@ -1,74 +1,71 @@
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 
 const Skills = () => {
-  const skills = [
-    { name: 'Python', level: 85, color: 'bg-primary' },
-    { name: 'C Programming', level: 80, color: 'bg-secondary' },
-    { name: 'Java (Basics)', level: 70, color: 'bg-accent' },
-    { name: 'Web Development', level: 75, color: 'bg-primary' },
-    { name: 'Problem Solving', level: 90, color: 'bg-secondary' },
-    { name: 'Technical Writing', level: 85, color: 'bg-accent' },
+  const services = [
+    {
+      title: 'Web Development',
+      description: "Let's transform your vision into a captivating online reality. I'll use make your digital presence shine, whether it's a new website or a revamp.",
+      icon: '🌐'
+    },
+    {
+      title: 'Problem Solving',
+      description: 'Analytical thinking and systematic approach to break down complex challenges into manageable solutions.',
+      icon: '🧩'
+    },
+    {
+      title: 'Technical Writing',
+      description: 'Clear documentation and communication of technical concepts for both technical and non-technical audiences.',
+      icon: '📝'
+    }
   ];
 
-  const qualities = [
-    { title: 'Quick Learner', description: 'Rapidly adapts to new technologies and frameworks' },
-    { title: 'Detail-Oriented', description: 'Meticulous attention to code quality and best practices' },
-    { title: 'Team Player', description: 'Collaborative approach to problem-solving and development' },
-    { title: 'Innovation-Focused', description: 'Always seeking creative solutions to complex challenges' },
+  const stats = [
+    { number: '10+', label: 'Project Completed' },
+    { number: '3+', label: 'Happy Clients' },
+    { number: '2+', label: 'Years Experience' }
   ];
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            My <span className="gradient-text">Skills</span>
+            My <span className="gradient-text">Services</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive overview of my technical skills and personal qualities 
-            that drive my development journey.
+            I'm a web design wizard. Let's transform your vision into a captivating online reality. Let me make your digital presence shine, whether it's a new website or a revamp.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Technical Skills */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">Technical Skills</h3>
-            <div className="space-y-6">
-              {skills.map((skill, index) => (
-                <Card key={index} className="bg-card border-border card-hover">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-lg font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <Progress value={skill.level} className="h-2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => (
+            <Card key={index} className="bg-card border-border hover:shadow-lg transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl mb-6">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-          {/* Personal Qualities */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">Key Qualities</h3>
-            <div className="grid gap-6">
-              {qualities.map((quality, index) => (
-                <Card key={index} className="bg-card border-border card-hover">
-                  <CardContent className="p-6">
-                    <h4 className="text-lg font-semibold mb-2 gradient-text">
-                      {quality.title}
-                    </h4>
-                    <p className="text-muted-foreground">
-                      {quality.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+        {/* Stats Section */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-4xl lg:text-5xl font-bold gradient-text mb-2">
+                {stat.number}
+              </div>
+              <div className="text-muted-foreground font-medium">
+                {stat.label}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

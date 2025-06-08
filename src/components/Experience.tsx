@@ -1,107 +1,78 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'AIML Internship',
       company: 'Google',
+      role: 'AIML Intern',
+      period: '2024 - Current',
       duration: 'June 2024 – July 2024',
-      type: 'Internship',
-      location: 'Remote',
-      description: [
-        'Gained hands-on experience with AI and Machine Learning concepts',
-        'Worked on real-world projects involving data analysis and model development',
-        'Collaborated with industry professionals on cutting-edge AI solutions'
-      ],
-      skills: ['Python', 'Machine Learning', 'Data Analysis', 'AI Frameworks']
+      description: 'Gained hands-on experience with AI and Machine Learning concepts, worked on real-world projects involving data analysis and model development.',
+      logo: '🔵'
     },
     {
-      title: 'Cloud Virtual Internship',
       company: 'AWS Academy',
+      role: 'Cloud Virtual Intern',
+      period: '2024',
       duration: 'Completed',
-      type: 'Virtual Internship',
-      location: 'Remote',
-      description: [
-        'Explored cloud computing fundamentals and AWS services',
-        'Learned about scalable infrastructure and cloud architecture',
-        'Gained practical experience with cloud deployment strategies'
-      ],
-      skills: ['AWS', 'Cloud Computing', 'Infrastructure', 'DevOps Basics']
+      description: 'Explored cloud computing fundamentals and AWS services, learned about scalable infrastructure and cloud architecture.',
+      logo: '☁️'
     },
     {
-      title: 'Salesforce Developer Virtual Internship',
       company: 'Smart Internz',
+      role: 'Salesforce Developer',
+      period: '2025',
       duration: 'March 2025 – April 2025',
-      type: 'Virtual Internship',
-      location: 'Remote',
-      description: [
-        'Learning Salesforce development and CRM customization',
-        'Building applications using Apex and Lightning Web Components',
-        'Understanding enterprise software development practices'
-      ],
-      skills: ['Salesforce', 'Apex', 'Lightning', 'CRM Development']
+      description: 'Learning Salesforce development and CRM customization, building applications using Apex and Lightning Web Components.',
+      logo: '⚡'
     }
   ];
 
   return (
-    <section id="experience" className="py-20 bg-muted/50">
+    <section id="experience" className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            My <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Professional internships and virtual experiences that have shaped my 
-            technical skills and industry knowledge.
-          </p>
-        </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Work <span className="gradient-text">Experience</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              My resume showcases my commitment to staying up-to-date with the latest design trends and technologies.
+            </p>
+          </div>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="bg-card border-border card-hover">
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold gradient-text">{exp.title}</h3>
-                    <h4 className="text-xl text-foreground">{exp.company}</h4>
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <Card key={index} className="bg-card border-border hover:shadow-lg transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        {exp.logo}
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-foreground">{exp.company}</h3>
+                        <h4 className="text-lg font-semibold text-primary">{exp.role}</h4>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {exp.description}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right lg:text-left lg:min-w-[120px]">
+                      <Badge variant="secondary" className="mb-2">
+                        {exp.period}
+                      </Badge>
+                      <p className="text-sm text-muted-foreground">
                         {exp.duration}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
-                      </div>
-                      <Badge variant="secondary">{exp.type}</Badge>
+                      </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="space-y-4">
-                  <ul className="space-y-2">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {exp.skills.map((skill, i) => (
-                      <Badge key={i} variant="outline" className="border-primary/50 text-primary">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
